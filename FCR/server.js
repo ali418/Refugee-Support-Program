@@ -6,9 +6,15 @@ const path = require('path');
 require('dotenv').config();
 
 const beneficiaryRoutes = require('./routes/beneficiaryRoutes');
+const config = require('./config');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = config.PORT;
+
+app.get('/app-config.js', (req, res) => {
+    res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
+    res.send(`window.APP_CONFIG=${JSON.stringify({ apiBaseUrl: config.PUBLIC_API_BASE_URL })};`);
+});
 
 // Middleware
 app.use(cors());
@@ -17,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Database Connection
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(config.MONGODB_URI)
 .then(() => console.log('MongoDB Connected'))
 .catch(err => console.error('MongoDB Connection Error:', err));
 

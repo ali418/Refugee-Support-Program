@@ -115,7 +115,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 try {
                     console.log('Sending form data:', formData);
-                    const response = await fetch('/api/register', {
+                    const request = (window.apiClient && window.apiClient.request) ? window.apiClient.request : fetch;
+                    const response = await request('/api/register', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -367,7 +368,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const format = adminExportFormat ? adminExportFormat.value : 'csv';
             const params = buildExportParams();
             params.set('format', format);
-            window.location.href = `/api/beneficiaries/export?${params.toString()}`;
+            const urlBuilder = (window.apiClient && window.apiClient.url) ? window.apiClient.url : ((p) => p);
+            window.location.href = urlBuilder(`/api/beneficiaries/export?${params.toString()}`);
         };
 
         const load = async () => {
@@ -375,7 +377,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 const params = buildParams();
-                const response = await fetch(`/api/beneficiaries?${params.toString()}`);
+                const request = (window.apiClient && window.apiClient.request) ? window.apiClient.request : fetch;
+                const response = await request(`/api/beneficiaries?${params.toString()}`);
                 const result = await response.json();
 
                 if (!response.ok) {
@@ -399,7 +402,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const updateStatus = async (id, status) => {
             try {
-                const response = await fetch(`/api/beneficiaries/${id}/status`, {
+                const request = (window.apiClient && window.apiClient.request) ? window.apiClient.request : fetch;
+                const response = await request(`/api/beneficiaries/${id}/status`, {
                     method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json'
@@ -424,7 +428,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const deleteBeneficiary = async (id) => {
             try {
-                const response = await fetch(`/api/beneficiaries/${id}`, { method: 'DELETE' });
+                const request = (window.apiClient && window.apiClient.request) ? window.apiClient.request : fetch;
+                const response = await request(`/api/beneficiaries/${id}`, { method: 'DELETE' });
                 const result = await response.json();
                 if (!response.ok) {
                     const message = result && result.message ? result.message : 'Failed to delete';
