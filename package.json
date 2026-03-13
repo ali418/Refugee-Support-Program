@@ -1,0 +1,8 @@
+{
+  "name": "refugee-support-program",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm --prefix FCR install",
+    "start": "node FCR/server.js"
+  }
+}
