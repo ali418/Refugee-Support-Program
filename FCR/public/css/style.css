@@ -363,17 +363,40 @@ footer {
    Responsive
 =========================== */
 @media (max-width: 700px) {
+    body.register-body {
+        height: auto;
+        display: block;
+    }
+
     .register-layout {
         flex-direction: column;
+        min-height: auto;
     }
 
     .left-panel {
         width: 100%;
-        padding: 30px 20px;
+        padding: 14px 16px;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 12px;
+    }
+
+    .logo-circle {
+        width: 72px;
+        height: 72px;
+        margin-bottom: 0;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+    }
+
+    .tagline {
+        font-size: 1.2rem;
+        text-align: left;
+        line-height: 1.2;
     }
 
     .right-panel {
         padding: 25px 20px;
+        justify-content: flex-start;
     }
 
     .form-row {
