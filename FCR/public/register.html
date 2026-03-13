@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beneficiary Registration - FCA</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="register-body">
+    <div class="register-layout">
+
+        <!-- Left Panel -->
+        <div class="left-panel">
+            <div class="logo-circle">
+                <img src="images/fca-logo.jpg" alt="FCA Logo" class="logo-img">
+            </div>
+            <p class="tagline">Refugee Support Program</p>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="right-panel">
+
+            <div id="success-alert" class="alert alert-success" style="display: none;">
+                <button type="button" class="close-btn" onclick="closeAlert()">&times;</button>
+                <strong>Success!</strong> Beneficiary has been registered successfully.
+            </div>
+
+            <h2 class="form-title">Beneficiary Registration Form</h2>
+
+            <form id="registrationForm" novalidate>
+
+                <!-- Row 1: First Name + Last Name -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name <span class="required">*</span></label>
+                        <input type="text" id="firstName" name="firstName" class="form-control"
+                            placeholder="Enter your First name" required minlength="2">
+                        <div class="error-message" id="firstNameError">First name is required and must be at least 2
+                            characters.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last name <span class="required">*</span></label>
+                        <input type="text" id="lastName" name="lastName" class="form-control"
+                            placeholder="Enter your Last name" required minlength="2">
+                        <div class="error-message" id="lastNameError">Last name is required and must be at least 2
+                            characters.</div>
+                    </div>
+                </div>
+
+                <!-- Row 2: Date of Birth + Place of Birth -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="dateOfBirth">Date of birth <span class="required">*</span></label>
+                        <input type="date" id="dateOfBirth" name="dateOfBirth" class="form-control" required>
+                        <div class="error-message" id="dateOfBirthError">Date of birth must be before today.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="placeOfBirth">Place of Birth <span class="required">*</span></label>
+                        <input type="text" id="placeOfBirth" name="placeOfBirth" class="form-control"
+                            placeholder="Enter your place of residence" required minlength="2">
+                        <div class="error-message" id="placeOfBirthError">Place of birth is required and must be at
+                            least 2 characters.</div>
+                    </div>
+                </div>
+
+                <!-- Row 3: Gender -->
+                <div class="form-group">
+                    <label>Gender</label>
+                    <div class="radio-group radio-box">
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="Male"> Male
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="Female" checked> Female
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Row 4: Nationality + Marital Status -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nationality">Nationality <span class="required">*</span></label>
+                        <select id="nationality" name="nationality" class="form-control" required>
+                            <option value="">-- Select Nationality --</option>
+                            <option value="Ugandan">Ugandan</option>
+                            <option value="Kenyan">Kenyan</option>
+                            <option value="Tanzanian">Tanzanian</option>
+                            <option value="Burundian">Burundian</option>
+                            <option value="Rwandese">Rwandese</option>
+                            <option value="Somali">Somali</option>
+                            <option value="South Sudanese">South Sudanese</option>
+                        </select>
+                        <div class="error-message" id="nationalityError">Please select a nationality.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="maritalStatus">Marital status <span class="required">*</span></label>
+                        <select id="maritalStatus" name="maritalStatus" class="form-control" required>
+                            <option value="">-- Select Marital status --</option>
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option>
+                            <option value="Divorced">Divorced</option>
+                            <option value="Widowed">Widowed</option>
+                            <option value="Separated">Separated</option>
+                        </select>
+                        <div class="error-message" id="maritalStatusError">Please select a marital status.</div>
+                    </div>
+                </div>
+
+                <!-- Row 5: Settlement Camp + Date of Joining -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="settlementCamp">Settlement camp <span class="required">*</span></label>
+                        <select id="settlementCamp" name="settlementCamp" class="form-control" required>
+                            <option value="">-- Select settlement camp --</option>
+                            <option value="Gulu settlement camp">Gulu settlement camp</option>
+                            <option value="Arua settlement camp">Arua settlement camp</option>
+                            <option value="Mbarara settlement camp">Mbarara settlement camp</option>
+                            <option value="Kasese settlement camp">Kasese settlement camp</option>
+                            <option value="Busia settlement camp">Busia settlement camp</option>
+                            <option value="Mbale settlement camp">Mbale settlement camp</option>
+                            <option value="Kigezi settlement camp">Kigezi settlement camp</option>
+                        </select>
+                        <div class="error-message" id="settlementCampError">Please select a settlement camp.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="dateOfJoining">Date of joining Settlement camp <span
+                                class="required">*</span></label>
+                        <input type="date" id="dateOfJoining" name="dateOfJoining" class="form-control" required>
+                        <div class="error-message" id="dateOfJoiningError">Date of joining must be after today
+                            (registration date).</div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-group" style="margin-top: 20px;">
+                    <button type="submit" class="btn btn-register">Register</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

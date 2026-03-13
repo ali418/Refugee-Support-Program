@@ -1,0 +1,777 @@
+:root {
+    --color-pale-green: #99CC32;
+    --color-deep-green: #385723;
+    --font-agency: 'Agency FB', sans-serif;
+    --font-arial: 'Arial Narrow', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-arial);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* ===========================
+   Landing Page
+=========================== */
+body.landing-body {
+    background-color: var(--color-pale-green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-agency);
+    color: var(--color-deep-green);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.landing-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-container {
+    background-color: white;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.logo-img {
+    max-width: 60%;
+    max-height: 60%;
+}
+
+.landing-title {
+    color: white;
+    font-family: var(--font-agency);
+    font-size: 2rem;
+    margin-bottom: 30px;
+    font-weight: normal;
+    text-transform: capitalize;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+.btn {
+    display: inline-block;
+    background-color: var(--color-deep-green);
+    color: white;
+    padding: 10px 40px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-family: var(--font-arial);
+    font-size: 1.2rem;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+    background-color: var(--color-pale-green);
+    color: var(--color-deep-green);
+}
+
+.btn-white {
+    background-color: white;
+    color: var(--color-pale-green);
+    font-family: var(--font-agency);
+    min-width: 200px;
+}
+
+.btn-white:hover {
+    background-color: #f0f0f0;
+    color: var(--color-deep-green);
+}
+
+/* ===========================
+   Register Page Layout
+=========================== */
+body.register-body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: stretch;
+    background-color: var(--color-pale-green);
+}
+
+.register-layout {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Left Panel */
+.left-panel {
+    background-color: var(--color-pale-green);
+    width: 38%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    flex-shrink: 0;
+}
+
+.logo-circle {
+    background-color: white;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.logo-circle .logo-img {
+    max-width: 60%;
+    max-height: 60%;
+    object-fit: contain;
+}
+
+.tagline {
+    color: white;
+    font-family: var(--font-agency);
+    font-size: 1.6rem;
+    text-align: center;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+/* Right Panel */
+.right-panel {
+    background-color: white;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 50px;
+    overflow-y: auto;
+}
+
+.form-title {
+    font-family: var(--font-agency);
+    color: var(--color-deep-green);
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ===========================
+   Form Styles
+=========================== */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 0;
+}
+
+.form-group {
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.required {
+    color: red;
+    margin-left: 2px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 9px 12px;
+    border: 2px solid var(--color-pale-green);
+    border-radius: 4px;
+    font-family: var(--font-arial);
+    font-size: 0.95rem;
+    color: #555;
+    background-color: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    text-align: center;
+}
+
+.form-control::placeholder {
+    color: #aaa;
+    text-align: center;
+}
+
+.form-control:focus {
+    border-color: var(--color-deep-green);
+    outline: none;
+    box-shadow: 0 0 5px rgba(56, 87, 35, 0.3);
+}
+
+/* Custom Select Arrow */
+select.form-control {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2399CC32' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 14px;
+    padding-right: 36px;
+    cursor: pointer;
+}
+
+/* Gender Radio Box */
+.radio-box {
+    border: 2px solid var(--color-pale-green);
+    border-radius: 4px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 0;
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.radio-label {
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #333;
+}
+
+.radio-label input[type="radio"] {
+    accent-color: var(--color-pale-green);
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+/* Register Button */
+.btn-register {
+    width: 100%;
+    background-color: var(--color-deep-green);
+    color: white;
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-arial);
+    transition: background-color 0.3s;
+}
+
+.btn-register:hover {
+    background-color: var(--color-pale-green);
+    color: white;
+}
+
+/* Error States */
+.error-message {
+    color: red;
+    font-size: 0.82em;
+    margin-top: 3px;
+    display: none;
+}
+
+.form-control.error {
+    border-color: red;
+}
+
+/* ===========================
+   Alert
+=========================== */
+.alert {
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-success {
+    color: var(--color-deep-green);
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+.close-btn {
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .2;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.close-btn:hover {
+    opacity: .5;
+}
+
+/* ===========================
+   Footer
+=========================== */
+footer {
+    text-align: center;
+    margin-top: 50px;
+    color: #777;
+    font-size: 0.9em;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+@media (max-width: 700px) {
+    .register-layout {
+        flex-direction: column;
+    }
+
+    .left-panel {
+        width: 100%;
+        padding: 30px 20px;
+    }
+
+    .right-panel {
+        padding: 25px 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+body.admin-body {
+    background-color: #f4f4f4;
+    min-height: 100vh;
+}
+
+.admin-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-header {
+    background-color: var(--color-deep-green);
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.admin-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.admin-logo {
+    background-color: #fff;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.admin-logo-img {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+}
+
+.admin-title {
+    margin: 0;
+    color: #fff;
+    font-size: 1.7rem;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+}
+
+.admin-subtitle {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+}
+
+.admin-header-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.admin-link-btn {
+    background-color: #fff;
+    color: var(--color-deep-green);
+    padding: 10px 18px;
+    font-size: 1rem;
+    box-shadow: none;
+}
+
+.admin-link-btn:hover {
+    background-color: var(--color-pale-green);
+    color: #fff;
+}
+
+.admin-main {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.admin-panel {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 18px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+.admin-panel-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.admin-field {
+    min-width: 220px;
+}
+
+.admin-field-grow {
+    flex: 1;
+    min-width: 280px;
+}
+
+.admin-field-actions {
+    min-width: 160px;
+}
+
+.admin-label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.admin-control {
+    text-align: left;
+}
+
+.admin-summary {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.admin-chip {
+    background-color: #f6fbef;
+    border: 1px solid rgba(153, 204, 50, 0.4);
+    border-radius: 999px;
+    padding: 8px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.admin-chip-label {
+    color: var(--color-deep-green);
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.admin-chip-value {
+    color: #333;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.admin-action-btn {
+    width: auto;
+    padding: 12px;
+    font-size: 1.05rem;
+}
+
+.admin-field-actions .admin-action-btn {
+    width: 100%;
+}
+
+.admin-export {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.admin-field-actions .admin-export .admin-action-btn {
+    width: auto;
+}
+
+.admin-action-btn--secondary {
+    background-color: #fff;
+    color: var(--color-deep-green);
+    border: 1px solid rgba(56, 87, 35, 0.35);
+}
+
+.admin-action-btn--secondary:hover {
+    background-color: var(--color-pale-green);
+    color: #fff;
+}
+
+.admin-action-btn--ghost {
+    background-color: transparent;
+    color: var(--color-deep-green);
+    border: 1px solid rgba(56, 87, 35, 0.35);
+    box-shadow: none;
+}
+
+.admin-action-btn--ghost:hover {
+    background-color: var(--color-deep-green);
+    color: #fff;
+}
+
+.admin-filters {
+    margin-top: 14px;
+    padding: 14px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #fafafa;
+    display: none;
+}
+
+.admin-filters.admin-filters--open {
+    display: block;
+}
+
+.admin-filters-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px 14px;
+    align-items: end;
+}
+
+.admin-filters-row + .admin-filters-row {
+    margin-top: 12px;
+}
+
+.admin-filters-actions {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.admin-page-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.admin-filter-actions-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.admin-control--small {
+    width: 110px;
+    min-width: 110px;
+}
+
+select.admin-control[multiple] {
+    min-height: 112px;
+    padding-right: 12px;
+    background-image: none;
+}
+
+.admin-table-wrap {
+    margin-top: 14px;
+    overflow: auto;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 980px;
+}
+
+.admin-table thead th {
+    background-color: #f7f7f7;
+    color: var(--color-deep-green);
+    font-family: var(--font-agency);
+    font-size: 1rem;
+    font-weight: normal;
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.admin-table tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.95rem;
+    vertical-align: middle;
+}
+
+.admin-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.admin-empty {
+    text-align: center;
+    color: #777;
+    padding: 18px;
+}
+
+.admin-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border: 1px solid transparent;
+}
+
+.admin-badge--pending {
+    background-color: #fff7d6;
+    color: #8a6d3b;
+    border-color: #faebcc;
+}
+
+.admin-badge--approved {
+    background-color: #dff0d8;
+    color: var(--color-deep-green);
+    border-color: #d6e9c6;
+}
+
+.admin-badge--rejected {
+    background-color: #f2dede;
+    color: #a94442;
+    border-color: #ebccd1;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.admin-mini-btn {
+    padding: 8px 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.admin-mini-btn--approve {
+    border-color: rgba(56, 87, 35, 0.55);
+    color: var(--color-deep-green);
+}
+
+.admin-mini-btn--approve:hover {
+    background-color: var(--color-deep-green);
+    color: #fff;
+    border-color: var(--color-deep-green);
+}
+
+.admin-mini-btn--reject {
+    border-color: rgba(138, 109, 59, 0.55);
+    color: #8a6d3b;
+}
+
+.admin-mini-btn--reject:hover {
+    background-color: #8a6d3b;
+    color: #fff;
+    border-color: #8a6d3b;
+}
+
+.admin-mini-btn--delete {
+    border-color: rgba(169, 68, 66, 0.55);
+    color: #a94442;
+}
+
+.admin-mini-btn--delete:hover {
+    background-color: #a94442;
+    color: #fff;
+    border-color: #a94442;
+}
+
+@media (max-width: 700px) {
+    .admin-main {
+        padding: 16px;
+    }
+
+    .admin-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .admin-field,
+    .admin-field-actions {
+        min-width: 100%;
+    }
+
+    .admin-table {
+        min-width: 860px;
+    }
+}

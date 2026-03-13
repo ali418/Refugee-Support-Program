@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - FCA</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="admin-body">
+    <div class="admin-shell">
+        <header class="admin-header">
+            <div class="admin-brand">
+                <div class="admin-logo">
+                    <img src="images/fca-logo.jpg" alt="FCA Logo" class="admin-logo-img">
+                </div>
+                <div class="admin-brand-text">
+                    <h1 class="admin-title">Admin Dashboard</h1>
+                    <div class="admin-subtitle">Beneficiary Applications</div>
+                </div>
+            </div>
+            <div class="admin-header-actions">
+                <a href="/" class="btn admin-link-btn">Home</a>
+                <a href="/register" class="btn admin-link-btn">Register</a>
+            </div>
+        </header>
+
+        <main class="admin-main">
+            <div id="admin-alert" class="alert" style="display:none;"></div>
+
+            <section class="admin-panel">
+                <div class="admin-panel-row admin-panel-row--top">
+                    <div class="admin-field">
+                        <label class="admin-label" for="adminSearch">Search</label>
+                        <input id="adminSearch" class="form-control admin-control" type="text"
+                            placeholder="Search by name, nationality, camp...">
+                    </div>
+                    <div class="admin-field">
+                        <label class="admin-label" for="adminStatus">Status</label>
+                        <select id="adminStatus" class="form-control admin-control">
+                            <option value="">All</option>
+                            <option value="Pending" selected>Pending</option>
+                            <option value="Approved">Approved</option>
+                            <option value="Rejected">Rejected</option>
+                        </select>
+                    </div>
+                    <div class="admin-field">
+                        <label class="admin-label" for="adminSort">Sort</label>
+                        <select id="adminSort" class="form-control admin-control">
+                            <option value="registrationDate:desc" selected>Registered (Newest)</option>
+                            <option value="registrationDate:asc">Registered (Oldest)</option>
+                            <option value="dateOfBirth:asc">Date of Birth (Oldest)</option>
+                            <option value="dateOfBirth:desc">Date of Birth (Newest)</option>
+                            <option value="dateOfJoining:asc">Joining Date (Earliest)</option>
+                            <option value="dateOfJoining:desc">Joining Date (Latest)</option>
+                        </select>
+                    </div>
+                    <div class="admin-field admin-field-grow">
+                        <label class="admin-label">Summary</label>
+                        <div class="admin-summary">
+                            <div class="admin-chip">
+                                <span class="admin-chip-label">Total</span>
+                                <span id="adminTotal" class="admin-chip-value">0</span>
+                            </div>
+                            <div class="admin-chip">
+                                <span class="admin-chip-label">Showing</span>
+                                <span id="adminShowing" class="admin-chip-value">0</span>
+                            </div>
+                            <div class="admin-chip">
+                                <span class="admin-chip-label">Page</span>
+                                <span id="adminPageInfo" class="admin-chip-value">1</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-field admin-field-actions">
+                        <button id="adminFiltersToggle" class="btn admin-action-btn admin-action-btn--secondary"
+                            type="button">Filters</button>
+                    </div>
+                    <div class="admin-field admin-field-actions">
+                        <label class="admin-label" for="adminExportFormat">Export</label>
+                        <div class="admin-export">
+                            <select id="adminExportScope" class="form-control admin-control admin-control--small">
+                                <option value="filtered" selected>All Filtered</option>
+                                <option value="page">This Page</option>
+                            </select>
+                            <select id="adminExportFormat" class="form-control admin-control admin-control--small">
+                                <option value="csv" selected>CSV</option>
+                                <option value="json">JSON</option>
+                            </select>
+                            <button id="adminExportBtn" class="btn admin-action-btn" type="button">Download</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="adminFilters" class="admin-filters">
+                    <div class="admin-filters-row">
+                        <div class="admin-field">
+                            <label class="admin-label" for="adminRegisteredFrom">Registered From</label>
+                            <input id="adminRegisteredFrom" class="form-control admin-control" type="date">
+                        </div>
+                        <div class="admin-field">
+                            <label class="admin-label" for="adminRegisteredTo">Registered To</label>
+                            <input id="adminRegisteredTo" class="form-control admin-control" type="date">
+                        </div>
+                        <div class="admin-field">
+                            <label class="admin-label" for="adminJoiningFrom">Joining From</label>
+                            <input id="adminJoiningFrom" class="form-control admin-control" type="date">
+                        </div>
+                        <div class="admin-field">
+                            <label class="admin-label" for="adminJoiningTo">Joining To</label>
+                            <input id="adminJoiningTo" class="form-control admin-control" type="date">
+                        </div>
+                        <div class="admin-field">
+                            <label class="admin-label" for="adminDobFrom">DOB From</label>
+                            <input id="adminDobFrom" class="form-control admin-control" type="date">
+                        </div>
+                        <div class="admin-field">
+                            <label class="admin-label" for="adminDobTo">DOB To</label>
+                            <input id="adminDobTo" class="form-control admin-control" type="date">
+                        </div>
+                    </div>
+                    <div class="admin-filters-row">
+                        <div class="admin-field">
+                            <label class="admin-label" for="adminGender">Gender</label>
+                            <select id="adminGender" class="form-control admin-control">
+                                <option value="" selected>All</option>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                            </select>
+                        </div>
+                        <div class="admin-field">
+                            <label class="admin-label" for="adminNationality">Nationality</label>
+                            <select id="adminNationality" class="form-control admin-control" multiple>
+                                <option value="Ugandan">Ugandan</option>
+                                <option value="Kenyan">Kenyan</option>
+                                <option value="Tanzanian">Tanzanian</option>
+                                <option value="Burundian">Burundian</option>
+                                <option value="Rwandese">Rwandese</option>
+                                <option value="Somali">Somali</option>
+                                <option value="South Sudanese">South Sudanese</option>
+                            </select>
+                        </div>
+                        <div class="admin-field">
+                            <label class="admin-label" for="adminMaritalStatus">Marital Status</label>
+                            <select id="adminMaritalStatus" class="form-control admin-control" multiple>
+                                <option value="Single">Single</option>
+                                <option value="Married">Married</option>
+                                <option value="Divorced">Divorced</option>
+                                <option value="Widowed">Widowed</option>
+                                <option value="Separated">Separated</option>
+                            </select>
+                        </div>
+                        <div class="admin-field">
+                            <label class="admin-label" for="adminSettlementCamp">Settlement Camp</label>
+                            <select id="adminSettlementCamp" class="form-control admin-control" multiple>
+                                <option value="Gulu settlement camp">Gulu settlement camp</option>
+                                <option value="Arua settlement camp">Arua settlement camp</option>
+                                <option value="Mbarara settlement camp">Mbarara settlement camp</option>
+                                <option value="Kasese settlement camp">Kasese settlement camp</option>
+                                <option value="Busia settlement camp">Busia settlement camp</option>
+                                <option value="Mbale settlement camp">Mbale settlement camp</option>
+                                <option value="Kigezi settlement camp">Kigezi settlement camp</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="admin-filters-actions">
+                        <div class="admin-page-controls">
+                            <button id="adminPrev" class="admin-mini-btn" type="button">Prev</button>
+                            <button id="adminNext" class="admin-mini-btn" type="button">Next</button>
+                            <select id="adminPageSize" class="form-control admin-control admin-control--small">
+                                <option value="25">25</option>
+                                <option value="50" selected>50</option>
+                                <option value="100">100</option>
+                                <option value="200">200</option>
+                            </select>
+                        </div>
+                        <div class="admin-filter-actions-right">
+                            <button id="adminApply" class="btn admin-action-btn" type="button">Apply</button>
+                            <button id="adminReset" class="btn admin-action-btn admin-action-btn--secondary"
+                                type="button">Reset</button>
+                            <button id="adminRefresh" class="btn admin-action-btn admin-action-btn--ghost"
+                                type="button">Refresh</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-table-wrap">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Gender</th>
+                                <th>Date of Birth</th>
+                                <th>Nationality</th>
+                                <th>Marital</th>
+                                <th>Camp</th>
+                                <th>Joining</th>
+                                <th>Registered</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminTbody">
+                            <tr>
+                                <td colspan="10" class="admin-empty">Loading...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

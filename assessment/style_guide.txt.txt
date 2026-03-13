@@ -1,0 +1,14 @@
+FONTS:
+- Agency FB
+- Arial Narrow
+
+
+COLORS:
+
+- pale Green:
+  - RGB: rgb(153, 204, 50)
+  - HEX: #99CC32
+
+- deep green:
+  - RGB: rgb(56, 87, 35)
+  - HEX: #385723

@@ -1,0 +1,44 @@
+Design a system for FCA refugee support program.
+
+The system has two components, landing page and beneficiary registration form.
+
+The system must have two functional ends, Frontend and Backend. 
+ - Frontend includes UI components, form validation and form submission.
+ - Backend includes database, models, routes.
+
+Validation Rules:
+- Fields First name, Last name and  Place of birth are required and each must be at least 2 characters long
+- Date of birth must be before date of registration.
+- Gender is a radio buttons arranged horizontally whose value is female by default.
+- Date of joining settlement camp must be after date of registration.
+- Nationality, Marital status, and Settlement camp are selectable fields whose options are as below respectively.
+  
+  - Nationality:
+    - Ugandan
+    - Kenyan
+    - Tanzanian
+    - Burundian
+    - Rwandese
+    - Somali
+    - South Sudanese
+
+  - Marital status:
+    - Single
+    - Married
+    - Divorced
+    - Widowed
+    - Separated
+
+  - Settlement camp:
+    - Gulu settlement camp
+    - Arua settlement camp
+    - Mbarara settlement camp
+    - Kasese settlement camp
+    - Busia settlement camp
+    - Mbale settlement camp
+    - Kigezi settlement camp
+
+- A form should not be submitted if the fields are either empty or invalid
+- On a successful submission of the form, fields and field boarders must be reset to default and a success alert must popup at the top of the form.
+- On closing the success alert box, the form and all its fields resets to default.
+
