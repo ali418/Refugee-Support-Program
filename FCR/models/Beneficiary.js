@@ -40,6 +40,7 @@ const beneficiarySchema = new mongoose.Schema({
         required: [true, 'Nationality is required'],
         enum: [
             'Ugandan',
+            'Sudanese',
             'Kenyan',
             'Tanzanian',
             'Burundian',
@@ -69,7 +70,8 @@ const beneficiarySchema = new mongoose.Schema({
             'Kasese settlement camp',
             'Busia settlement camp',
             'Mbale settlement camp',
-            'Kigezi settlement camp'
+            'Kigezi settlement camp',
+            'Kampala settlement camp'
         ]
     },
     dateOfJoining: {
